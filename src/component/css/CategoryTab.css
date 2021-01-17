@@ -1,0 +1,30 @@
+.category-tab-box {
+  width: 100%;
+  padding: 0;
+  margin-top: 20px;
+}
+.category-tab-box h2 {
+  font-size: 20px;
+  display: inline;
+}
+
+.button-box {
+  display: inline;
+  float: right;
+}
+
+.button-box button {
+  background-color: darkgrey;
+  margin: 0 2px;
+}
+
+.select-box {
+  display: flex;
+}
+
+.select-box button {
+  height: 50px;
+  margin: 0 2px;
+  font-size: 1rem;
+  width: 20%;
+}

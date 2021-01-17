@@ -1,0 +1,22 @@
+.reco-box {
+  text-align: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid dimgrey;
+  background-color: ghostwhite;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.reco-box > h2 {
+  display: inline-block;
+  background-color: #384259;
+  color: #7ac7c4;
+  padding: 0 10px;
+  border-radius: 5px;
+}
+
+.card-container {
+  justify-content: space-around;
+  display: flex;
+  width: 100%;
+}
