@@ -33,6 +33,7 @@ const CategoryTab = () => {
                 }}
                 key={idx}
                 style={categoryIdx === idx ? selectedStyle : unselectedStyle}
+                disabled={idx !== 0}
               >
                 {name}
               </button>
