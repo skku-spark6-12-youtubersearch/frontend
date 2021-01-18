@@ -7,12 +7,24 @@
   margin-top: 10px;
 }
 
-.reco-box > h2 {
+.reco-top {
+  text-align: center;
+}
+
+.reco-top > h2 {
   display: inline-block;
   background-color: #384259;
   color: #7ac7c4;
   padding: 0 10px;
   border-radius: 5px;
+}
+
+.reco-button {
+  position: absolute;
+  display: inline;
+  right: 20%;
+  margin-top: 20px;
+  margin-right: 10px;
 }
 
 .card-container {
