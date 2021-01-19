@@ -9,7 +9,7 @@ function App() {
     <>
       <Route path="/" component={TopBanner} />
       <Route path="/" component={Home} exact />
-      <Route path="/youtuber/:name" component={YoutuberInfo} />
+      <Route path="/youtuber/:id" component={YoutuberInfo} />
     </>
   );
 }

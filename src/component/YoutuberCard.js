@@ -4,10 +4,15 @@ import { Link } from "react-router-dom";
 
 const YoutuberCard = ({ info }) => {
   return (
-    <Link className="card-link" to={`/youtuber/${info.channel_title}`}>
+    <Link className="card-link" to={`/youtuber/${info.channel_id}`}>
       <div className="card-box">
         <div className="image-box">
-          <img src={info.channel_photo} alt="channelimage" />
+          <img
+            src={`data:image/png;base64, ${info.channel_photo}`}
+            alt="channelimage"
+            width="100%"
+            height="100%"
+          />
         </div>
         <div className="text-box">
           <h3>{info.channel_title}</h3>

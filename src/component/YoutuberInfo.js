@@ -1,25 +1,73 @@
-import React from "react";
-import youtuberData from "../asset/DB_data.json";
+import React, { useEffect, useState } from "react";
+// import youtuberData from "../asset/DB_data.json";
+import axios from "axios";
 
 const YoutuberInfo = ({ match }) => {
-  const youtuber_name = match.params.name;
-  const youtuber_data = youtuberData.Youtuber.filter(
-    (youtuber) => youtuber.youtube_title === youtuber_name
-  )[0];
-  return (
-    <div style={{ textAlign: "center" }}>
-      {Object.keys(youtuber_data).map((key, idx) => {
-        return (
-          <div
-            style={{ backgroundColor: "gray", width: "60%", margin: "auto" }}
-          >
-            <h2>{key}</h2>
-            <p>{Object.values(youtuber_data)[idx]}</p>
-          </div>
+  const [channelInfo, setChannelInfo] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    const youtuber_id = match.params.id;
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `http://localhost:9000/channel/${youtuber_id}`
         );
-      })}
-    </div>
-  );
+        // console.log(response.data);
+        setChannelInfo(response.data);
+        setIsLoaded(true);
+      } catch (e) {
+        console.log(e);
+        setIsLoaded(true);
+      }
+    };
+    fetchData();
+  }, [match]);
+
+  const required_keys = [
+    "categories",
+    "tags",
+
+    "country",
+    "default_language",
+    "published_data",
+
+    "id",
+    "title",
+    "desc",
+  ];
+
+  const required_keys_history = ["video_num", "view_num", "subscriber_num"];
+
+  if (!isLoaded) {
+    return <div>Loading..</div>;
+  } else if (isLoaded && channelInfo == null) {
+    return <div>no data get</div>;
+  } else {
+    return (
+      <div>
+        {Object.keys(channelInfo).map((key, idx) => {
+          if (required_keys.includes(key)) {
+            return (
+              <div key={idx} style={{ textAlign: "center" }}>
+                <h2>{key}</h2>
+                <div>{Object.values(channelInfo[key])}</div>
+              </div>
+            );
+          } else if (required_keys_history.includes(key)) {
+            return (
+              <div key={idx} style={{ textAlign: "center" }}>
+                <h2>{key}</h2>
+                <div>{channelInfo[key][0]["value"]}</div>
+              </div>
+            );
+          } else {
+            return null;
+          }
+        })}
+      </div>
+    );
+  }
 };
 
 export default YoutuberInfo;

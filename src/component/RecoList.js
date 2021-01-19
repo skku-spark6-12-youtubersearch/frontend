@@ -11,7 +11,7 @@ const RecoList = ({ category }) => {
     const fetchData = async () => {
       try {
         const response = await axios.get("http://localhost:9000/summary");
-        console.log(response.data);
+        // console.log(response.data);
         setItems(response.data);
         setIsLoaded(true);
       } catch (e) {
