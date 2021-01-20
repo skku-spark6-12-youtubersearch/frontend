@@ -10,6 +10,7 @@ const RecoList = ({ category }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        console.log("get start");
         const response = await axios.get("http://localhost:9000/summary");
         // console.log(response.data);
         setItems(response.data);
