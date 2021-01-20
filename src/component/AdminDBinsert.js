@@ -26,7 +26,16 @@ const AdminDBinsert = () => {
   return (
     <div>
       <h1>JSON 파일 입력해주세요</h1>
-      <input type="file" accept=".json" onChange={onChange} />
+      <form name="add_data" action="http://localhost:3001" method="post">
+        <input
+          type="file"
+          accept=".json"
+          name="input_json"
+          onChange={onChange}
+        />
+        <button type="submit">보내기</button>
+      </form>
+
       {isFileLoaded && <div>{fileItem.substr(0, 2000)}</div>}
     </div>
   );
