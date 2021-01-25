@@ -8,10 +8,11 @@ const YoutuberCard = ({ info }) => {
       <div className="card-box">
         <div className="image-box">
           <img
-            src={`data:image/png;base64, ${info.channel_photo}`}
+            src={`${info.channel_photo}`}
             alt="channelimage"
-            width="100%"
-            height="100%"
+            width="90%"
+            height="90%"
+            style={{ borderRadius: "100%", marginTop: "10px" }}
           />
         </div>
         <div className="text-box">

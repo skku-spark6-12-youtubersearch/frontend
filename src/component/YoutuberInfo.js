@@ -35,9 +35,13 @@ const YoutuberInfo = ({ match }) => {
     "id",
     "title",
     "desc",
+    "sex",
+    "live_platform",
   ];
 
   const required_keys_history = ["video_num", "view_num", "subscriber_num"];
+
+  const required_keys_img = ["profile_img", "banner_img"];
 
   if (!isLoaded) {
     return <div>Loading..</div>;
@@ -47,7 +51,17 @@ const YoutuberInfo = ({ match }) => {
     return (
       <div>
         {Object.keys(channelInfo).map((key, idx) => {
-          if (required_keys.includes(key)) {
+          if (required_keys_img.includes(key)) {
+            return (
+              <div key={idx} style={{ textAlign: "center" }}>
+                <h2>{key}</h2>
+                <img
+                  src={Object.values(channelInfo[key]).join("")}
+                  alt="youtuber img"
+                />
+              </div>
+            );
+          } else if (required_keys.includes(key)) {
             return (
               <div key={idx} style={{ textAlign: "center" }}>
                 <h2>{key}</h2>

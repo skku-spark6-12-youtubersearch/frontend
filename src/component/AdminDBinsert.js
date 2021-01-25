@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+const secret = require("./secret");
 
 const AdminDBinsert = () => {
   const [isFileLoaded, setIsFileLoaded] = useState(false);
   const [fileItem, setFileItem] = useState(null);
+
   const reader = new FileReader();
   reader.onload = () => {
     console.log("read ok");
-    setFileItem(reader.result);
+    setFileItem(JSON.parse(reader.result));
     setIsFileLoaded(true);
-    console.log(typeof reader.result);
   };
 
   const onChange = (e) => {
@@ -23,20 +25,58 @@ const AdminDBinsert = () => {
     }
   };
 
+  const updateClick = async () => {
+    if (isFileLoaded === false) {
+      alert("no items");
+      return;
+    } else {
+      const idlist = fileItem.channels.map((item) => {
+        return item.id;
+      });
+
+      console.log("post start");
+      var param = false;
+      if (window.confirm("overwrite?")) {
+        param = true;
+      } else {
+        param = false;
+      }
+      for (let id of idlist) {
+        console.log(`${id} post start`);
+        try {
+          const response = await axios({
+            method: "post",
+            url: `http://localhost:9000/admin/channel/${id}`,
+            data: fileItem.channels.filter((channel) => channel.id === id)[0],
+            headers: {
+              "x-access-token": secret.ADMIN_TOKEN,
+            },
+            params: {
+              overwrite: param,
+            },
+          });
+
+          console.log(response);
+        } catch (e) {
+          console.log(e);
+        }
+      }
+    }
+  };
+
   return (
     <div>
       <h1>JSON 파일 입력해주세요</h1>
-      <form name="add_data" action="http://localhost:3001" method="post">
-        <input
-          type="file"
-          accept=".json"
-          name="input_json"
-          onChange={onChange}
-        />
-        <button type="submit">보내기</button>
-      </form>
+      <a href="https://skku-spark6-12-youtubersearch.github.io/docs/admin">
+        https://skku-spark6-12-youtubersearch.github.io/docs/admin
+      </a>
+      <hr />
 
-      {isFileLoaded && <div>{fileItem.substr(0, 2000)}</div>}
+      <input type="file" accept=".json" name="input_json" onChange={onChange} />
+      <button disabled={1}>Set DB </button>
+      <button onClick={updateClick}>Update Channel </button>
+
+      {isFileLoaded && <div>{JSON.stringify(fileItem).substr(0, 2000)}</div>}
     </div>
   );
 };
