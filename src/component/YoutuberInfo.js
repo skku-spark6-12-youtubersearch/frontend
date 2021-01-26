@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 // import youtuberData from "../asset/DB_data.json";
 import axios from "axios";
+import "./css/YoutuberInfo.css";
 
 const YoutuberInfo = ({ match }) => {
   const [channelInfo, setChannelInfo] = useState(null);
@@ -13,7 +14,7 @@ const YoutuberInfo = ({ match }) => {
         const response = await axios.get(
           `http://localhost:9000/channel/${youtuber_id}`
         );
-        // console.log(response.data);
+        // console.log(typeof response.data.published_date);
         setChannelInfo(response.data);
         setIsLoaded(true);
       } catch (e) {
@@ -30,7 +31,7 @@ const YoutuberInfo = ({ match }) => {
 
     "country",
     "default_language",
-    "published_data",
+    "published_date",
 
     "id",
     "title",
@@ -48,8 +49,21 @@ const YoutuberInfo = ({ match }) => {
   } else if (isLoaded && channelInfo == null) {
     return <div>no data get</div>;
   } else {
+    const backgroundImageStyle = {
+      backgroundImage: `url('${channelInfo["banner_img"]}')`,
+      backgroundPosition: "center center",
+      backgroundSize: "60% 500px",
+      backgroundRepeat: "no-repeat",
+      width: "100%",
+      height: "150px",
+      marginTop: "10px",
+      // backgroundColor: "red",
+    };
+
     return (
       <div>
+        <div className="banner_img_box" style={backgroundImageStyle}></div>
+
         {Object.keys(channelInfo).map((key, idx) => {
           if (required_keys_img.includes(key)) {
             return (

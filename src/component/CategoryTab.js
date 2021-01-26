@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./css/CategoryTab.css";
-import RecoList from "./RecoList";
+import FilterTab from "./FilterTab";
 
 const category = ["게임", "음악", "요리", "브이로그", "엔터테인먼트"];
 
@@ -41,7 +41,7 @@ const CategoryTab = () => {
           })}
         </div>
       </div>
-      <RecoList category={category[categoryIdx]} />
+      <FilterTab category={category[categoryIdx]} />
     </>
   );
 };

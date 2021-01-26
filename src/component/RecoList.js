@@ -3,7 +3,7 @@ import RecoElement from "./RecoElement";
 import axios from "axios";
 import test_data from "../asset/test_data.json";
 
-const RecoList = ({ category }) => {
+const RecoList = ({ category, filter }) => {
   const [items, setItems] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -30,7 +30,7 @@ const RecoList = ({ category }) => {
     return (
       <>
         {items.map((data, idx) => (
-          <RecoElement key={idx} data={data} />
+          <RecoElement key={idx} data={data} filter={filter} />
         ))}
       </>
     );

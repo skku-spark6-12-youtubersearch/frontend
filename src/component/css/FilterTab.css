@@ -1,0 +1,21 @@
+.filter-tab-box {
+  width: 100%;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.filter-tab-box h2 {
+  font-size: 20px;
+  display: inline;
+}
+
+.select-box {
+  display: flex;
+}
+
+.select-box button {
+  height: 50px;
+  margin: 0 2px;
+  font-size: 1rem;
+  width: 20%;
+}
