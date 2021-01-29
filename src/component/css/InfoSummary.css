@@ -1,0 +1,14 @@
+.summary-box {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.summary-box p {
+  margin: 10px auto;
+  background-color: #f73859;
+  color: aliceblue;
+  width: 50%;
+  padding: 10px;
+  border-radius: 10px;
+}

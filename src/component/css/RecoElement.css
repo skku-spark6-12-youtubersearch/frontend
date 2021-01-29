@@ -1,6 +1,6 @@
 .reco-box {
   text-align: center;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
   border-bottom: 1px solid dimgrey;
   background-color: ghostwhite;
   width: 100%;
@@ -31,4 +31,17 @@
   justify-content: space-around;
   display: flex;
   width: 100%;
+}
+
+.reco-score {
+  background-color: #384259;
+  width: 50%;
+  margin: 10px auto;
+  border-radius: 10px;
+  padding: 3px 3px;
+}
+
+.reco-score p {
+  display: inline;
+  color: aliceblue;
 }

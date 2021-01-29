@@ -1,0 +1,19 @@
+.info-wordcloud-box {
+  background-color: aliceblue;
+  width: 100%;
+  padding-top: 5px;
+}
+
+.head-text-box h2 {
+  text-align: center;
+  background-color: #384259;
+  color: cornsilk;
+  border-radius: 10px;
+  padding: 3px 3px;
+  width: 80%;
+  margin: 5px auto;
+}
+
+.loading-box h2 {
+  text-align: center;
+}

@@ -1,0 +1,56 @@
+.profile-box {
+  width: 100%;
+  background-color: #384259;
+  margin-top: 10px;
+  height: 300px;
+  display: flex;
+  flex-direction: row;
+}
+
+.avatar-summary-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 60%;
+  margin-left: 10px;
+}
+
+.profile-img {
+  border-radius: 100%;
+  height: 90%;
+}
+
+.profile-text-box {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+
+.profile-text-box h2 {
+  color: aliceblue;
+}
+.profile-text-box p {
+  color: darkgray;
+}
+
+.button-contain {
+  width: 30%;
+  display: flex;
+
+  margin: auto;
+  justify-content: center;
+}
+
+.button-column {
+  display: flex;
+  flex-direction: column;
+  margin: 0 5px;
+}
+
+.button-column button {
+  width: 100%;
+  height: 110px;
+  border-radius: 10px;
+  border-width: 0;
+  margin: 5px 5px;
+}

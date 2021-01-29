@@ -2,6 +2,10 @@ import React, { useEffect, useState } from "react";
 // import youtuberData from "../asset/DB_data.json";
 import axios from "axios";
 import "./css/YoutuberInfo.css";
+import ProfileBanner from "./ProfileBanner";
+import InfoVideos from "./InfoVideos";
+import InfoWordCloud from "./InfoWordCloud";
+import InfoSummary from "./InfoSummary";
 
 const YoutuberInfo = ({ match }) => {
   const [channelInfo, setChannelInfo] = useState(null);
@@ -25,25 +29,6 @@ const YoutuberInfo = ({ match }) => {
     fetchData();
   }, [match]);
 
-  const required_keys = [
-    "categories",
-    "tags",
-
-    "country",
-    "default_language",
-    "published_date",
-
-    "id",
-    "title",
-    "desc",
-    "sex",
-    "live_platform",
-  ];
-
-  const required_keys_history = ["video_num", "view_num", "subscriber_num"];
-
-  const required_keys_img = ["profile_img", "banner_img"];
-
   if (!isLoaded) {
     return <div>Loading..</div>;
   } else if (isLoaded && channelInfo == null) {
@@ -52,7 +37,7 @@ const YoutuberInfo = ({ match }) => {
     const backgroundImageStyle = {
       backgroundImage: `url('${channelInfo["banner_img"]}')`,
       backgroundPosition: "center center",
-      backgroundSize: "60% 500px",
+      backgroundSize: "100% 500px",
       backgroundRepeat: "no-repeat",
       width: "100%",
       height: "150px",
@@ -61,38 +46,16 @@ const YoutuberInfo = ({ match }) => {
     };
 
     return (
-      <div>
+      <div className="info-page-box">
         <div className="banner_img_box" style={backgroundImageStyle}></div>
-
-        {Object.keys(channelInfo).map((key, idx) => {
-          if (required_keys_img.includes(key)) {
-            return (
-              <div key={idx} style={{ textAlign: "center" }}>
-                <h2>{key}</h2>
-                <img
-                  src={Object.values(channelInfo[key]).join("")}
-                  alt="youtuber img"
-                />
-              </div>
-            );
-          } else if (required_keys.includes(key)) {
-            return (
-              <div key={idx} style={{ textAlign: "center" }}>
-                <h2>{key}</h2>
-                <div>{Object.values(channelInfo[key])}</div>
-              </div>
-            );
-          } else if (required_keys_history.includes(key)) {
-            return (
-              <div key={idx} style={{ textAlign: "center" }}>
-                <h2>{key}</h2>
-                <div>{channelInfo[key][0]["value"]}</div>
-              </div>
-            );
-          } else {
-            return null;
-          }
-        })}
+        <ProfileBanner data={channelInfo} />
+        <hr width={"100%"} color={"#CFCFCF"} />
+        <InfoVideos data={channelInfo} />
+        <hr width={"100%"} color={"#CFCFCF"} />
+        <InfoSummary data={channelInfo} />
+        <hr width={"100%"} color={"#CFCFCF"} />
+        <InfoWordCloud data={channelInfo} />
+        <hr width={"100%"} color={"#CFCFCF"} />
       </div>
     );
   }

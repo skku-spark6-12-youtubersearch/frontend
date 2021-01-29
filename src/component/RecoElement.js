@@ -72,6 +72,10 @@ const RecoElement = ({ data, filter }) => {
       </div>
 
       <div className="card-container">{card}</div>
+      <div className="reco-score">
+        <p>SCORE : </p>
+        <p className="score-desc">{data.list_score_desc}</p>{" "}
+      </div>
     </div>
   );
 };

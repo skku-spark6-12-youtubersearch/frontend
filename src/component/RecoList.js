@@ -25,7 +25,11 @@ const RecoList = ({ category, filter }) => {
   }, []);
 
   if (!isLoaded) {
-    return <div>Loading...</div>;
+    return (
+      <div>
+        <h2>추천 주제를 불러오고 있습니다!</h2>
+      </div>
+    );
   } else {
     return (
       <>

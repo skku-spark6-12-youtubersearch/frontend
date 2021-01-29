@@ -9,6 +9,8 @@
 
 .text-box h3 {
   vertical-align: middle;
+  width: 100%;
+  word-break: break-all;
 }
 
 .card-link {
@@ -27,4 +29,8 @@
   background-color: aliceblue;
   height: 1px;
   border-width: 0;
+}
+
+.text-box p {
+  color: aliceblue;
 }

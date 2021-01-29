@@ -18,7 +18,12 @@ const YoutuberCard = ({ info }) => {
         <div className="text-box">
           <h3>{info.channel_title}</h3>
           <hr />
-          <p>구독자수 : {info.subscriber_num.value}</p>
+          <p>
+            SCORE :{" "}
+            {info.channel_score
+              .toString()
+              .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+          </p>
         </div>
       </div>
     </Link>
