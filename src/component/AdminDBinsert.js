@@ -46,7 +46,7 @@ const AdminDBinsert = () => {
         try {
           const response = await axios({
             method: "post",
-            url: `http://localhost:9000/admin/channel/${id}`,
+            url: `http://${secret.BACKEND_IP}:9000/admin/channel/${id}`,
             data: fileItem.channels.filter((channel) => channel.id === id)[0],
             headers: {
               "x-access-token": secret.ADMIN_TOKEN,
@@ -64,6 +64,33 @@ const AdminDBinsert = () => {
     }
   };
 
+  const setTagClick = async () => {
+    if (isFileLoaded === false) {
+      alert("no items");
+      return;
+    } else {
+      console.log("post start");
+      if (!window.confirm("Set Tag DB?")) {
+        console.log("stop post");
+        return;
+      }
+      try {
+        const response = await axios({
+          method: "post",
+          url: `http://${secret.BACKEND_IP}:9000/admin/tags`,
+          data: fileItem,
+          headers: {
+            "x-access-token": secret.ADMIN_TOKEN,
+          },
+        });
+
+        console.log(response);
+      } catch (e) {
+        console.log(e);
+      }
+    }
+  };
+
   return (
     <div>
       <h1>JSON 파일 입력해주세요</h1>
@@ -73,8 +100,9 @@ const AdminDBinsert = () => {
       <hr />
 
       <input type="file" accept=".json" name="input_json" onChange={onChange} />
-      <button disabled={1}>Set DB </button>
+      <button disabled={1}>Set Channel DB </button>
       <button onClick={updateClick}>Update Channel </button>
+      <button onClick={setTagClick}>Set Tag DB</button>
 
       {isFileLoaded && <div>{JSON.stringify(fileItem).substr(0, 2000)}</div>}
     </div>

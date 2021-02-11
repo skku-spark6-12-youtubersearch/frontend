@@ -6,6 +6,7 @@ import ProfileBanner from "./ProfileBanner";
 import InfoVideos from "./InfoVideos";
 import InfoWordCloud from "./InfoWordCloud";
 import InfoSummary from "./InfoSummary";
+const secret = require("./secret");
 
 const YoutuberInfo = ({ match }) => {
   const [channelInfo, setChannelInfo] = useState(null);
@@ -16,7 +17,7 @@ const YoutuberInfo = ({ match }) => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:9000/channel/${youtuber_id}`
+          `http://${secret.BACKEND_IP}:9000/channel/${youtuber_id}`
         );
         // console.log(typeof response.data.published_date);
         setChannelInfo(response.data);

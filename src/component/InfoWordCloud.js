@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./css/InfoWordCloud.css";
 import ReactWordCloud from "react-wordcloud";
 import axios from "axios";
+const secret = require("./secret");
 
 const InfoWordCloud = ({ data }) => {
   const [wordcloudData, setWordcloudData] = useState(null);
@@ -12,7 +13,7 @@ const InfoWordCloud = ({ data }) => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:9000/wordcloud/${youtuber_id}`
+          `http://${secret.BACKEND_IP}:9000/wordcloud/${youtuber_id}`
         );
         // console.log(typeof response.data.published_date);
         setWordcloudData(response.data);

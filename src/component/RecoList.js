@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import RecoElement from "./RecoElement";
 import axios from "axios";
 import test_data from "../asset/test_data.json";
+const secret = require("./secret");
 
 const RecoList = ({ category, filter }) => {
   const [items, setItems] = useState(null);
@@ -11,7 +12,9 @@ const RecoList = ({ category, filter }) => {
     const fetchData = async () => {
       try {
         console.log("get start");
-        const response = await axios.get("http://localhost:9000/summary");
+        const response = await axios.get(
+          `http://${secret.BACKEND_IP}:9000/summary`
+        );
         // console.log(response.data);
         setItems(response.data);
         setIsLoaded(true);
