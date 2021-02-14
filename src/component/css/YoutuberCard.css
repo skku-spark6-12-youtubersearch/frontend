@@ -1,28 +1,42 @@
 .card-box {
-  background-color: #f73859;
-  border-radius: 10px;
-  height: 20rem;
+  /* background-color: #f73859;
+  border-radius: 10px; */
+
   margin: 0 10px;
-  width: 80%;
+  height: 100%;
   position: relative;
 }
-
+.image-box {
+  padding-top: 10px;
+  height: 100%;
+  border-radius: 10px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: auto 1000px;
+}
 .text-box h3 {
   vertical-align: middle;
   width: 100%;
   word-break: break-all;
+  color: aliceblue;
 }
 
 .card-link {
   text-decoration: none;
   color: black;
-  width: 20%;
+  display: block;
+  height: 250px;
+  margin-bottom: 15px;
 }
 
 .text-box {
   width: 100%;
   position: absolute;
   bottom: 0;
+}
+
+.text-box h3 {
+  margin: 0;
 }
 
 .text-box hr {
@@ -33,4 +47,5 @@
 
 .text-box p {
   color: aliceblue;
+  margin: 0;
 }

@@ -1,13 +1,12 @@
 .info-wordcloud-box {
-  background-color: aliceblue;
   width: 100%;
   padding-top: 5px;
 }
 
 .head-text-box h2 {
   text-align: center;
-  background-color: #384259;
-  color: cornsilk;
+  background-color: #23252b;
+  color: white;
   border-radius: 10px;
   padding: 3px 3px;
   width: 80%;
@@ -16,4 +15,25 @@
 
 .loading-box h2 {
   text-align: center;
+}
+
+.sentiment_radar {
+  margin-top: 20px;
+}
+
+.info-detail-box {
+  text-align: center;
+}
+
+.detail-what {
+  background-color: #f73859;
+  width: 10rem;
+  color: aliceblue;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  margin: auto;
+}
+.info-detail-box > div {
+  border: 1px solid #f73859;
+  margin-top: 10px;
 }

@@ -1,6 +1,7 @@
 .top-banner {
   width: 100%;
-  background-color: #384259;
+  /* background-color: #384259; */
+  background-color: #23252b;
   display: flex;
   height: 50px;
 }

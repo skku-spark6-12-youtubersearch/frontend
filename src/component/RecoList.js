@@ -4,6 +4,14 @@ import axios from "axios";
 import test_data from "../asset/test_data.json";
 const secret = require("./secret");
 
+const shuffleArray = (array) => {
+  for (let i = 0; i < array.length; i++) {
+    let j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+};
+
 const RecoList = ({ category, filter }) => {
   const [items, setItems] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -36,9 +44,11 @@ const RecoList = ({ category, filter }) => {
   } else {
     return (
       <>
-        {items.map((data, idx) => (
-          <RecoElement key={idx} data={data} filter={filter} />
-        ))}
+        {shuffleArray(
+          items.map((data, idx) => (
+            <RecoElement key={idx} data={data} filter={filter} />
+          ))
+        )}
       </>
     );
   }

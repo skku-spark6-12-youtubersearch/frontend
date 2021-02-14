@@ -1,11 +1,31 @@
 import React, { useState, useEffect } from "react";
 import YoutuberCard from "./YoutuberCard";
 import "./css/RecoElement.css";
+import Slider from "react-slick";
 
 const RecoElement = ({ data, filter }) => {
-  const [showidx, setShowidx] = useState(0);
   const [card, setCard] = useState(null);
-  const [cardLength, setCardLength] = useState(0);
+  const [slick_settings, setSlickSettings] = useState({
+    dots: true,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 5,
+    slidesToScroll: 5,
+    touchMove: false,
+    draggable: false,
+    accessibiliy: true,
+    arrows: true,
+    rows: 2,
+    autoplay: true,
+    autoplaySpeed: 6000,
+  });
+
+  const no_score_list = [
+    "TopAbility",
+    "TopClean",
+    "AbilityMaster",
+    "AbilityLecture",
+  ];
 
   useEffect(() => {
     let real_idx = -1;
@@ -17,12 +37,13 @@ const RecoElement = ({ data, filter }) => {
       .map((channel, idx) => {
         if (filter.length === 0) {
           real_idx += 1;
-          return (real_idx < showidx
-            ? real_idx + youtuberlist.length
-            : real_idx) <=
-            showidx + 4 ? (
-            <YoutuberCard key={real_idx} info={channel} showkey={showidx} />
-          ) : null;
+          return (
+            <YoutuberCard
+              key={real_idx}
+              info={channel}
+              listName={data.list_name}
+            />
+          );
         } else {
           if (
             channel.channel_filter.some((tag) => {
@@ -30,51 +51,79 @@ const RecoElement = ({ data, filter }) => {
             })
           ) {
             real_idx += 1;
-            return (real_idx < showidx
-              ? real_idx + youtuberlist.length
-              : real_idx) <=
-              showidx + 4 ? (
-              <YoutuberCard key={real_idx} info={channel} showkey={showidx} />
-            ) : null;
+            return (
+              <YoutuberCard
+                key={real_idx}
+                info={channel}
+                listName={data.list_name}
+              />
+            );
           } else {
             return null;
           }
         }
       });
-    setCard(live_card);
-    setCardLength(real_idx + 1);
-  }, [filter, showidx, data]);
-
-  const onClick = (e) => {
-    if (e.target.name === "minus") {
-      setShowidx((showidx - 1 + cardLength) % cardLength);
+    if (live_card.filter((x) => x !== null).length > 10) {
+      console.log(live_card.filter((x) => x !== null).length);
+      setSlickSettings(
+        {
+          dots: true,
+          infinite: true,
+          speed: 500,
+          slidesToShow: 5,
+          slidesToScroll: 5,
+          touchMove: false,
+          draggable: false,
+          accessibiliy: true,
+          arrows: true,
+          rows: 2,
+          autoplay: true,
+          autoplaySpeed: 6000,
+        },
+        setCard(live_card)
+      );
     } else {
-      setShowidx((showidx + 1) % cardLength);
+      console.log("not enough");
+      setSlickSettings(
+        {
+          dots: true,
+          infinite: false,
+          speed: 500,
+          slidesToShow: 5,
+          slidesToScroll: 5,
+          touchMove: false,
+          draggable: false,
+          accessibiliy: true,
+          arrows: true,
+          rows: 2,
+          autoplay: true,
+          autoplaySpeed: 6000,
+        },
+        setCard(live_card)
+      );
     }
-  };
+
+    // setCard(live_card);
+  }, [filter, data]);
 
   return (
     <div className="reco-box">
       <div className="reco-top">
-        <h2>{data.list_desc}</h2>
-        <div className="reco-button">
-          <button name="minus" onClick={onClick} disabled={showidx === 0}>
-            &lt;
-          </button>
-          <button
-            name="plus"
-            onClick={onClick}
-            disabled={showidx === cardLength - 5}
-          >
-            &gt;
-          </button>
-        </div>
+        <h1>{data.list_desc}</h1>
+        {no_score_list.indexOf(data.list_name) === -1 ? (
+          <div className="reco-score">
+            <p>SCORE : </p>
+            <p className="score-desc">{data.list_score_desc}</p>{" "}
+          </div>
+        ) : (
+          <div className="reco-score">
+            <p className="score-desc">{data.list_score_desc}</p>{" "}
+          </div>
+        )}
       </div>
 
-      <div className="card-container">{card}</div>
-      <div className="reco-score">
-        <p>SCORE : </p>
-        <p className="score-desc">{data.list_score_desc}</p>{" "}
+      <div className="card-container">
+        <Slider {...slick_settings}>{card}</Slider>
       </div>
     </div>
   );

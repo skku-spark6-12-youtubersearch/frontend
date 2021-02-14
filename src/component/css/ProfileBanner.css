@@ -1,7 +1,7 @@
 .profile-box {
   width: 100%;
-  background-color: #384259;
-  margin-top: 10px;
+  /* background-color: #23252b; */
+
   height: 300px;
   display: flex;
   flex-direction: row;
@@ -17,20 +17,27 @@
 
 .profile-img {
   border-radius: 100%;
-  height: 90%;
+  width: 90%;
+  border-style: ridge;
+  border-width: 2px;
 }
 
 .profile-text-box {
   display: flex;
   flex-direction: column;
   margin-left: 10px;
+
+  height: 100%;
+  justify-content: center;
 }
 
 .profile-text-box h2 {
-  color: aliceblue;
+  /* color: aliceblue; */
+  margin-bottom: 0;
 }
 .profile-text-box p {
-  color: darkgray;
+  /* color: darkgray; */
+  margin: 0;
 }
 
 .button-contain {
@@ -50,7 +57,15 @@
 .button-column button {
   width: 100%;
   height: 110px;
-  border-radius: 10px;
+  border-radius: 20px;
   border-width: 0;
   margin: 5px 5px;
+  background-color: #f73859;
+  color: aliceblue;
+}
+
+.button-column button:hover {
+  background-color: #f7aaaa;
+  color: black;
+  font-weight: bolder;
 }

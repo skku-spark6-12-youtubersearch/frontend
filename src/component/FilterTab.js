@@ -33,7 +33,7 @@ const FilterTab = ({ category }) => {
   };
 
   const selectedStyle = {
-    backgroundColor: "#384259",
+    backgroundColor: "#23252b",
     color: "white",
   };
   const unselectedStyle = {
@@ -46,7 +46,7 @@ const FilterTab = ({ category }) => {
         <div>
           <h2>필터 선택</h2>
         </div>
-        <div className="select-box">
+        <div className="filter-select-box">
           {filter.map((tag, idx) => {
             return (
               <button

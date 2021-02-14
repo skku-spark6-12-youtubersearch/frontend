@@ -29,9 +29,13 @@ const InfoSummary = ({ data }) => {
         <h2>정보 요약</h2>
       </div>
       <div className="summary-box">
-        <p>성별 : {channel_sex}</p>
-        <p>플레이 하는 게임 : {channel_game}</p>
-        <p>라이브 방송 플랫폼 : {channel_platform}</p>
+        {typeof channel_sex !== "undefined" && channel_sex !== "??" ? (
+          <p>성별 : {channel_sex}</p>
+        ) : null}
+        {channel_game !== "" ? <p>플레이 하는 게임 : {channel_game}</p> : null}
+        {channel_platform !== "" ? (
+          <p>라이브 방송 플랫폼 : {channel_platform}</p>
+        ) : null}
       </div>
     </div>
   );
