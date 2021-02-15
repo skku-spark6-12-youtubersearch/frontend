@@ -12,7 +12,7 @@ const ProfileBanner = ({ data }) => {
             .toString()
             .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`}</p>
           <p style={{ fontWeight: "bold", marginTop: "10px" }}>설명</p>
-          <p>{data.desc.substr(0, 100) + " ......"}</p>
+          <p>{data.desc.substr(0, 500) + " ......"}</p>
         </div>
       </div>
       <div className="button-contain">
@@ -22,7 +22,10 @@ const ProfileBanner = ({ data }) => {
             target={"_blank"}
             rel="noreferrer"
           >
-            <button>보러가기</button>
+            <button>
+              <i className="fab fa-youtube fa-5x"></i>
+              <p>보러가기</p>
+            </button>
           </a>
           <button className="not-allowed">차단목록 추가</button>
         </div>

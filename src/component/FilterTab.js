@@ -33,11 +33,12 @@ const FilterTab = ({ category }) => {
   };
 
   const selectedStyle = {
-    backgroundColor: "#23252b",
+    backgroundColor: " #EF3959",
     color: "white",
   };
   const unselectedStyle = {
-    backgroundColor: "white",
+    backgroundColor: "#E98899",
+    color: "white",
   };
 
   return (

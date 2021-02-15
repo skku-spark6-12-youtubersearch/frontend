@@ -141,7 +141,11 @@ const InfoWordCloud = ({ data }) => {
           </div>
           <div className="sentiment_radar">
             <p className="detail-what">시청자 댓글 분석</p>
-            <Radar options={sentiment_options} data={sentimentData} />
+            <Radar
+              options={sentiment_options}
+              data={sentimentData}
+              height={"80px"}
+            />
           </div>
         </div>
       </div>

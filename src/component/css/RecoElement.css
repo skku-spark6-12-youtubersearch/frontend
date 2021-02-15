@@ -3,8 +3,9 @@
   padding-bottom: 10px;
   border-bottom: 1px solid dimgrey;
   /* background-color: ghostwhite; */
-  width: 100%;
+  width: 90%;
   margin-top: 10px;
+  margin-left: 80px;
 }
 
 .reco-top {
@@ -16,12 +17,12 @@
   margin-bottom: 20px;
 }
 
-.reco-top > h1 {
+.reco-top > h2 {
   display: inline-block;
   /* background-color: #384259; */
   /* color: #7ac7c4; */
-  padding: 0 10px;
-  border-radius: 5px;
+  margin-top: 20px;
+  margin-bottom: 0;
 }
 
 .reco-button {
@@ -36,19 +37,23 @@
   /* justify-content: space-around;
   display: flex;
   width: 100%; */
-  height: 550px;
+  height: 250px;
+
+  padding-left: 20px;
 }
 
 .reco-score {
+  /* background-color: #242424; */
   background-color: #f73859;
-  /* width: 50%; */
-  height: 2rem;
-  margin: auto 0;
+  width: 20em;
+  height: 1.5rem;
+  margin: auto;
   border-radius: 10px;
   text-align: right;
-  padding-top: 10px;
+  padding-top: 5px;
   padding-left: 10px;
   padding-right: 10px;
+  text-align: center;
 }
 
 .reco-score p {
@@ -58,5 +63,5 @@
 
 .slick-prev:before,
 .slick-next:before {
-  color: #fab;
+  color: black;
 }

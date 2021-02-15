@@ -38,11 +38,13 @@ const YoutuberInfo = ({ match }) => {
     const backgroundImageStyle = {
       backgroundImage: `url('${channelInfo["banner_img"]}')`,
       backgroundPosition: "center center",
-      backgroundSize: "100% 500px",
+      backgroundSize: "100% auto",
       backgroundRepeat: "no-repeat",
-      width: "100%",
-      height: "150px",
+      // width: `50vw - 70px`,
+      height: "200px",
       marginTop: "10px",
+      marginLeft: "70px",
+      paddingLeft: "0",
       // backgroundColor: "red",
     };
 
@@ -50,13 +52,13 @@ const YoutuberInfo = ({ match }) => {
       <div className="info-page-box">
         <div className="banner_img_box" style={backgroundImageStyle}></div>
         <ProfileBanner data={channelInfo} />
-        <hr width={"100%"} color={"#CFCFCF"} />
+        <hr width={"100%"} color={"#CFCFCF"} style={{ marginLeft: "75px" }} />
         <InfoVideos data={channelInfo} />
-        <hr width={"100%"} color={"#CFCFCF"} />
+        <hr width={"100%"} color={"#CFCFCF"} style={{ marginLeft: "75px" }} />
         <InfoSummary data={channelInfo} />
-        <hr width={"100%"} color={"#CFCFCF"} />
+        <hr width={"100%"} color={"#CFCFCF"} style={{ marginLeft: "75px" }} />
         <InfoWordCloud data={channelInfo} />
-        <hr width={"100%"} color={"#CFCFCF"} />
+        <hr width={"100%"} color={"#CFCFCF"} style={{ marginLeft: "75px" }} />
       </div>
     );
   }

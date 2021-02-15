@@ -10,11 +10,12 @@ const top_banner = () => {
           YouReco!
         </Link>
       </h2>
-      <input
-        className="search-input"
-        type="text"
-        placeholder="유튜버를 검색하세요"
-      />
+      <div className="search-box">
+        <input className="search-input" type="text" placeholder="" />
+        <button>
+          <i className="fas fa-search"></i>
+        </button>
+      </div>
     </div>
   );
 };

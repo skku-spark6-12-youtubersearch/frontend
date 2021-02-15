@@ -69,7 +69,7 @@ const YoutuberCard = ({ info, listName }) => {
           <img
             src={`${info.channel_photo}`}
             alt="channelimage"
-            width="90%"
+            width="80px"
             // height="90%"
             style={{ borderRadius: "100%", margin: "auto" }}
           />

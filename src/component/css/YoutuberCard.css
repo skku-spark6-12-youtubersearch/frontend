@@ -12,21 +12,22 @@
   border-radius: 10px;
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: auto 1000px;
+  background-size: auto 700px;
 }
 .text-box h3 {
   vertical-align: middle;
   width: 100%;
   word-break: break-all;
-  color: aliceblue;
+  color: white;
 }
 
 .card-link {
   text-decoration: none;
   color: black;
   display: block;
-  height: 250px;
-  margin-bottom: 15px;
+  height: 180px;
+  width: 100%;
+  margin-bottom: 40px;
 }
 
 .text-box {
@@ -46,6 +47,6 @@
 }
 
 .text-box p {
-  color: aliceblue;
+  color: white;
   margin: 0;
 }

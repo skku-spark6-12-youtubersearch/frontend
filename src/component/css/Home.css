@@ -1,16 +1,17 @@
 .home-box {
-  width: 60%;
-  display: flex;
+  width: 100%;
+  /* display: flex;
   flex-direction: column;
-  align-items: center;
-  margin: 0 auto;
+  align-items: center; */
+  margin: 0;
+  /* padding-left: 70px; */
 }
 
-.login-box {
+/* .login-box {
   width: 100%;
   margin-top: 20px;
   padding: 5px;
   background-color: #23252b;
   text-align: center;
   color: white;
-}
+} */

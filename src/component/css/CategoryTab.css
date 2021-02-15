@@ -1,15 +1,13 @@
 .category-tab-box {
-  width: 100%;
+  width: 500px;
   padding: 0;
   margin-top: 10px;
+  margin-left: 80px;
+  display: inline-block;
 }
 .category-tab-box h2 {
   font-size: 20px;
   display: inline;
-}
-
-.category-text-box {
-  display: none;
 }
 
 .button-box {
@@ -20,6 +18,8 @@
 .button-box button {
   background-color: darkgrey;
   margin: 0 2px;
+  border-radius: 5px;
+  border: none;
 }
 
 .category-select-box {
@@ -28,7 +28,9 @@
 
 .category-select-box button {
   height: 30px;
-  margin: 0 2px;
-  font-size: 1rem;
-  width: 20%;
+  margin: 2px 5px;
+  font-size: 0.6rem;
+  width: 18%;
+  border-radius: 5px;
+  border: none;
 }

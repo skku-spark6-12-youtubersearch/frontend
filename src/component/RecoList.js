@@ -37,8 +37,9 @@ const RecoList = ({ category, filter }) => {
 
   if (!isLoaded) {
     return (
-      <div>
+      <div style={{ textAlign: "center" }}>
         <h2>추천 주제를 불러오고 있습니다!</h2>
+        <i className="fas fa-spinner fa-spin fa-10x"></i>
       </div>
     );
   } else {

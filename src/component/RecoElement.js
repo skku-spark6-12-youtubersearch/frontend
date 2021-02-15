@@ -15,7 +15,7 @@ const RecoElement = ({ data, filter }) => {
     draggable: false,
     accessibiliy: true,
     arrows: true,
-    rows: 2,
+    // rows: 2,
     autoplay: true,
     autoplaySpeed: 6000,
   });
@@ -63,8 +63,7 @@ const RecoElement = ({ data, filter }) => {
           }
         }
       });
-    if (live_card.filter((x) => x !== null).length > 10) {
-      console.log(live_card.filter((x) => x !== null).length);
+    if (live_card.filter((x) => x !== null).length > 5) {
       setSlickSettings(
         {
           dots: true,
@@ -76,14 +75,13 @@ const RecoElement = ({ data, filter }) => {
           draggable: false,
           accessibiliy: true,
           arrows: true,
-          rows: 2,
+          // rows: 2,
           autoplay: true,
           autoplaySpeed: 6000,
         },
         setCard(live_card)
       );
     } else {
-      console.log("not enough");
       setSlickSettings(
         {
           dots: true,
@@ -95,7 +93,7 @@ const RecoElement = ({ data, filter }) => {
           draggable: false,
           accessibiliy: true,
           arrows: true,
-          rows: 2,
+          // rows: 2,
           autoplay: true,
           autoplaySpeed: 6000,
         },
@@ -109,22 +107,22 @@ const RecoElement = ({ data, filter }) => {
   return (
     <div className="reco-box">
       <div className="reco-top">
-        <h1>{data.list_desc}</h1>
-        {no_score_list.indexOf(data.list_name) === -1 ? (
-          <div className="reco-score">
-            <p>SCORE : </p>
-            <p className="score-desc">{data.list_score_desc}</p>{" "}
-          </div>
-        ) : (
-          <div className="reco-score">
-            <p className="score-desc">{data.list_score_desc}</p>{" "}
-          </div>
-        )}
+        <h2>{data.list_desc}</h2>
       </div>
 
       <div className="card-container">
         <Slider {...slick_settings}>{card}</Slider>
       </div>
+      {no_score_list.indexOf(data.list_name) === -1 ? (
+        <div className="reco-score">
+          <p>SCORE : </p>
+          <p className="score-desc">{data.list_score_desc}</p>{" "}
+        </div>
+      ) : (
+        <div className="reco-score">
+          <p className="score-desc">{data.list_score_desc}</p>{" "}
+        </div>
+      )}
     </div>
   );
 };

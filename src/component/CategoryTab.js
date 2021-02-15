@@ -7,11 +7,12 @@ const category = ["게임", "음악", "요리", "브이로그", "엔터테인먼
 const CategoryTab = () => {
   const [categoryIdx, setCategoryIdx] = useState(0);
   const selectedStyle = {
-    backgroundColor: "#23252b",
+    backgroundColor: " #EF3959",
     color: "white",
   };
   const unselectedStyle = {
-    backgroundColor: "white",
+    backgroundColor: "#E98899",
+    color: "white",
   };
 
   return (

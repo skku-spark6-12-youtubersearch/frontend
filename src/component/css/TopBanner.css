@@ -1,17 +1,22 @@
 .top-banner {
+  padding: 20px 0;
   width: 100%;
   /* background-color: #384259; */
-  background-color: #23252b;
+  /* background-color: #23252b; */
   display: flex;
-  height: 50px;
+
+  height: 100px;
 }
 
 .site-logo {
-  margin-left: 20%;
+  margin-left: 80px;
   margin-top: auto;
   margin-bottom: auto;
 
-  font-size: 30px;
+  font-size: 50px;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: bold;
 }
 .home-link {
   text-decoration: none;
@@ -19,8 +24,33 @@
   color: #f73859;
 }
 
-.search-input {
+.search-box {
   margin: auto;
-  width: 30%;
+  width: 700px;
   height: 30px;
+  border: 1px solid #a7a7a7;
+  box-shadow: inset 0px 3px 3px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  padding: 0;
+}
+
+.search-input {
+  width: 80%;
+  height: 30px;
+  border: none;
+  margin: 0;
+  border-radius: 10px;
+  background-color: transparent;
+}
+
+.search-box button {
+  background: #c4c4c4;
+  border-radius: 10px;
+  display: inline;
+  float: right;
+
+  margin: 0;
+  width: 96px;
+  height: 31px;
+  border: none;
 }
