@@ -20,3 +20,12 @@
   position: relative;
   margin-top: 30px;
 }
+
+.side-bar-menu a {
+  text-decoration: none;
+  color: black;
+}
+
+.side-bar-menu a:hover {
+  color: #f73859;
+}

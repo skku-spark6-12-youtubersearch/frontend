@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./css/FilterTab.css";
 import RecoList from "./RecoList";
 
@@ -13,9 +13,9 @@ const filter = [
 const FilterTab = ({ category }) => {
   const [filterTag, setFilterTag] = useState([]);
 
-  useEffect(() => {
-    console.log(filterTag);
-  }, [filterTag]);
+  // useEffect(() => {
+  //   console.log(filterTag);
+  // }, [filterTag]);
 
   const onFilterClick = (e) => {
     if (filterTag.includes(e.target.value)) {

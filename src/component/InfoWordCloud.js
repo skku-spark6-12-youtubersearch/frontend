@@ -69,7 +69,7 @@ const InfoWordCloud = ({ data }) => {
             },
           ],
         };
-        console.log(clean_sentiment_data);
+        // console.log(clean_sentiment_data);
         setSentimentData(clean_sentiment_data);
         setWordcloudData(clean_cloud_data);
         setIsLoaded(true);
@@ -144,7 +144,7 @@ const InfoWordCloud = ({ data }) => {
             <Radar
               options={sentiment_options}
               data={sentimentData}
-              height={"80px"}
+              height={80}
             />
           </div>
         </div>

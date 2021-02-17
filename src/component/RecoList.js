@@ -21,14 +21,15 @@ const RecoList = ({ category, filter }) => {
       try {
         console.log("get start");
         const response = await axios.get(
-          `http://${secret.BACKEND_IP}:9000/summary`
+          `http://${secret.BACKEND_IP}:9000/summary`,
+          { timeout: 8000 }
         );
         // console.log(response.data);
         setItems(response.data);
         setIsLoaded(true);
       } catch (e) {
         console.log(e);
-        setItems(test_data);
+        // setItems(123);
         setIsLoaded(true);
       }
     };
@@ -43,15 +44,23 @@ const RecoList = ({ category, filter }) => {
       </div>
     );
   } else {
-    return (
-      <>
-        {shuffleArray(
-          items.map((data, idx) => (
-            <RecoElement key={idx} data={data} filter={filter} />
-          ))
-        )}
-      </>
-    );
+    if (items === null) {
+      return (
+        <div style={{ textAlign: "center" }}>
+          <h2>서버에 뭔가 문제가... ㅠㅠ</h2>
+          <h2>010-3670-9062 로 알려주시면 감사하겠습니다.</h2>
+        </div>
+      );
+    } else
+      return (
+        <>
+          {shuffleArray(
+            items.map((data, idx) => (
+              <RecoElement key={idx} data={data} filter={filter} />
+            ))
+          )}
+        </>
+      );
   }
 };
 

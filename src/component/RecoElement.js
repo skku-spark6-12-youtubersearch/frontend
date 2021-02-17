@@ -104,27 +104,29 @@ const RecoElement = ({ data, filter }) => {
     // setCard(live_card);
   }, [filter, data]);
 
-  return (
-    <div className="reco-box">
-      <div className="reco-top">
-        <h2>{data.list_desc}</h2>
-      </div>
+  if (card !== null && card.filter((x) => x !== null).length > 0) {
+    return (
+      <div className="reco-box">
+        <div className="reco-top">
+          <h2>{data.list_desc}</h2>
+        </div>
 
-      <div className="card-container">
-        <Slider {...slick_settings}>{card}</Slider>
+        <div className="card-container">
+          <Slider {...slick_settings}>{card}</Slider>
+        </div>
+        {no_score_list.indexOf(data.list_name) === -1 ? (
+          <div className="reco-score">
+            <p>SCORE : </p>
+            <p className="score-desc">{data.list_score_desc}</p>{" "}
+          </div>
+        ) : (
+          <div className="reco-score">
+            <p className="score-desc">{data.list_score_desc}</p>{" "}
+          </div>
+        )}
       </div>
-      {no_score_list.indexOf(data.list_name) === -1 ? (
-        <div className="reco-score">
-          <p>SCORE : </p>
-          <p className="score-desc">{data.list_score_desc}</p>{" "}
-        </div>
-      ) : (
-        <div className="reco-score">
-          <p className="score-desc">{data.list_score_desc}</p>{" "}
-        </div>
-      )}
-    </div>
-  );
+    );
+  } else return null;
 };
 
 export default RecoElement;

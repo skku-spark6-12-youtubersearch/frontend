@@ -1,6 +1,7 @@
 import React from "react";
 import "./css/TopBanner.css";
 import { Link } from "react-router-dom";
+import SearchBar from "./SearchBar";
 
 const top_banner = () => {
   return (
@@ -10,12 +11,8 @@ const top_banner = () => {
           YouReco!
         </Link>
       </h2>
-      <div className="search-box">
-        <input className="search-input" type="text" placeholder="" />
-        <button>
-          <i className="fas fa-search"></i>
-        </button>
-      </div>
+
+      <SearchBar />
     </div>
   );
 };

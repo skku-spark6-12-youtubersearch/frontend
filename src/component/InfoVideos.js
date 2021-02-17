@@ -36,7 +36,7 @@ const InfoVideos = ({ data }) => {
           <div className="video-list">
             {popularVideo.map((video, idx) => {
               return (
-                <div className="video_item">
+                <div className="video_item" key={idx}>
                   <a
                     href={`https://www.youtube.com/watch?v=${video.id}`}
                     rel="noreferrer"
@@ -61,7 +61,7 @@ const InfoVideos = ({ data }) => {
           <div className="video-list">
             {recentVideo.map((video, idx) => {
               return (
-                <div className="video_item">
+                <div className="video_item" key={idx}>
                   <a
                     href={`https://www.youtube.com/watch?v=${video.id}`}
                     rel="noreferrer"

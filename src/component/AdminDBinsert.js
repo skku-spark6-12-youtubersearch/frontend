@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 const secret = require("./secret");
 
@@ -91,22 +91,29 @@ const AdminDBinsert = () => {
     }
   };
 
-  return (
-    <div>
-      <h1>JSON 파일 입력해주세요</h1>
-      <a href="https://skku-spark6-12-youtubersearch.github.io/docs/admin">
-        https://skku-spark6-12-youtubersearch.github.io/docs/admin
-      </a>
-      <hr />
+  if (window.prompt("비밀번호를 입력하세요") === secret.ADMIN_PASSWORD) {
+    return (
+      <div style={{ paddingLeft: "80px" }}>
+        <h1>JSON 파일 입력해주세요</h1>
+        <a href="https://skku-spark6-12-youtubersearch.github.io/docs/admin">
+          https://skku-spark6-12-youtubersearch.github.io/docs/admin
+        </a>
+        <hr />
 
-      <input type="file" accept=".json" name="input_json" onChange={onChange} />
-      <button disabled={1}>Set Channel DB </button>
-      <button onClick={updateClick}>Update Channel </button>
-      <button onClick={setTagClick}>Set Tag DB</button>
+        <input
+          type="file"
+          accept=".json"
+          name="input_json"
+          onChange={onChange}
+        />
+        <button disabled={1}>Set Channel DB </button>
+        <button onClick={updateClick}>Update Channel </button>
+        <button onClick={setTagClick}>Set Tag DB</button>
 
-      {isFileLoaded && <div>{JSON.stringify(fileItem).substr(0, 2000)}</div>}
-    </div>
-  );
+        {isFileLoaded && <div>{JSON.stringify(fileItem).substr(0, 2000)}</div>}
+      </div>
+    );
+  } else return <div>비밀번호가 틀렸습니다.</div>;
 };
 
 export default AdminDBinsert;

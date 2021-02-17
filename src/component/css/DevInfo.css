@@ -1,0 +1,50 @@
+.dev-info-box {
+  background-color: aliceblue;
+  border: 1px solid;
+
+  width: 800px;
+  margin: auto;
+  margin-bottom: 20px;
+  padding: 10px 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+.dev-img-box {
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.dev-img-box img {
+  width: 300px;
+  height: auto;
+}
+
+.dev-text-box {
+  margin-left: 50px;
+  width: 430px;
+}
+
+.dev-text-box div {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.dev-memo {
+  background-color: #f73859;
+  color: white;
+  text-align: center;
+  font-style: italic;
+  font-weight: lighter;
+  position: relative;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.dev-memo div {
+  padding: 20px 20px;
+}
+.dev-memo span {
+  font-size: 50px;
+}
