@@ -3,6 +3,17 @@ import "./css/YoutuberCard.css";
 import { Link } from "react-router-dom";
 
 const YoutuberCard = ({ info, listName }) => {
+  const [isOnMouse, setIsOnMouse] = useState(false);
+
+  const onMouseEnter = (e) => {
+    setIsOnMouse(true);
+    console.log("on");
+  };
+  const onMouseLeave = (e) => {
+    setIsOnMouse(false);
+    console.log("out");
+  };
+
   let display_score = "";
   if (listName === "SubscriberNum") {
     if (info.channel_score >= 4000000) display_score = "400만명 이상";
@@ -56,30 +67,58 @@ const YoutuberCard = ({ info, listName }) => {
     else if (info.channel_score >= 2000) display_score = "2000개 이상";
     else if (info.channel_score >= 1000) display_score = "1000개 이상";
     else display_score = "500개 이상";
-  } else display_score = "YouReco AI 선정";
+  } else display_score = ""; //YouReco AI 선정
   return (
-    <Link className="card-link" to={`/youtuber/${info.channel_id}`}>
-      <div className="card-box">
-        <div
-          className="image-box"
-          style={{
-            backgroundImage: `linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(${info.channel_banner})`,
-          }}
-        >
-          <img
-            src={`${info.channel_photo}`}
-            alt="channelimage"
-            width="80px"
-            // height="90%"
-            style={{ borderRadius: "100%", margin: "auto" }}
-          />
+    <Link
+      className="card-link"
+      to={`/youtuber/${info.channel_id}`}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+    >
+      {isOnMouse ? (
+        <div className="card-box">
+          <div
+            className="image-box"
+            style={{
+              backgroundImage: `linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8) ), url(${info.channel_banner})`,
+            }}
+          ></div>
+          <div className="text-box-onmouse">
+            <h3>{info.channel_title}</h3>
+            <hr />
+            {info.channel_filter
+              .filter((x) => x !== null)
+              .map((tag, idx) => (
+                <div className="card-tag" key={idx}>
+                  {tag}
+                </div>
+              ))
+              .slice(undefined, 4)}
+          </div>
         </div>
-        <div className="text-box">
-          <h3>{info.channel_title}</h3>
-          <hr />
-          <p>{display_score}</p>
+      ) : (
+        <div className="card-box">
+          <div
+            className="image-box"
+            style={{
+              backgroundImage: `linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(${info.channel_banner})`,
+            }}
+          >
+            <img
+              src={`${info.channel_photo}`}
+              alt="channelimage"
+              width="80px"
+              // height="90%"
+              style={{ borderRadius: "100%", margin: "auto" }}
+            />
+          </div>
+          <div className="text-box">
+            <h3>{info.channel_title}</h3>
+            <hr />
+            <p>{display_score}</p>
+          </div>
         </div>
-      </div>
+      )}
     </Link>
   );
 };

@@ -8,6 +8,8 @@ const filter = [
   "리그 오브 레전드",
   "마인크래프트",
   "배틀그라운드",
+  "아프리카TV",
+  "트위치",
 ];
 
 const FilterTab = ({ category }) => {

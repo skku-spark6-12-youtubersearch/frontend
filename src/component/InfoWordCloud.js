@@ -17,6 +17,7 @@ const InfoWordCloud = ({ data }) => {
         const response = await axios.get(
           `http://${secret.BACKEND_IP}:9000/wordcloud/${youtuber_id}`
         );
+        //워드클라우드 데이터
         // console.log(typeof response.data.published_date);
         let clean_cloud_data = response.data.namu_tags.map((data, idx) => {
           return { text: data.tag, value: data.value };
@@ -30,45 +31,114 @@ const InfoWordCloud = ({ data }) => {
           })
           .slice(undefined, 20);
         clean_cloud_data = clean_cloud_data.concat(clean_video_tag_data);
+        //감성분석 데이터
+        const origin_sentiment_data = response.data.comment_tags;
+        let remake_sentiment_data = [
+          {
+            tag: "재밌다~",
+            value: origin_sentiment_data
+              .filter((x) => {
+                return x.tag === "happy";
+              })
+              .reduce((acc, cur) => acc + cur.value * 100, 0)
+              .toFixed(2),
+          },
+          {
+            tag: "놀라워!",
+            value: origin_sentiment_data
+              .filter((x) => {
+                return x.tag === "surprise" || x.tag === "fear";
+              })
+              .reduce((acc, cur) => acc + cur.value * 100, 0)
+              .toFixed(2),
+          },
+          {
+            tag: "열받네",
+            value: origin_sentiment_data
+              .filter((x) => {
+                return x.tag === "hate" || x.tag === "angry";
+              })
+              .reduce((acc, cur) => acc + cur.value * 100, 0)
+              .toFixed(2),
+          },
+          {
+            tag: "슬프다ㅠ",
+            value: origin_sentiment_data
+              .filter((x) => {
+                return x.tag === "sad";
+              })
+              .reduce((acc, cur) => acc + cur.value * 100, 0)
+              .toFixed(2),
+          },
+          {
+            tag: "아무말대잔치",
+            value: origin_sentiment_data
+              .filter((x) => {
+                return x.tag === "neutrality";
+              })
+              .reduce((acc, cur) => acc + cur.value * 100, 0)
+              .toFixed(2),
+          },
+        ];
         let clean_sentiment_data = {
-          labels: response.data.comment_tags.map((data) => {
-            if (data.tag === "happy") {
-              return "행복";
-            } else if (data.tag === "sad") {
-              return "슬픔";
-            } else if (data.tag === "angry") {
-              return "화남";
-            } else if (data.tag === "surprise") {
-              return "놀람";
-            } else if (data.tag === "fear") {
-              return "공포";
-            } else if (data.tag === "hate") {
-              return "혐오";
-            } else if (data.tag === "neutrality") {
-              return "중립";
-            } else {
-              return "기타";
-            }
-          }),
+          labels: remake_sentiment_data.map((data) => data.tag),
           datasets: [
             {
-              label: "시청자 댓글 반응(단위 %)",
-              data: response.data.comment_tags.map((data) =>
-                (data.value * 100).toFixed(2)
-              ),
+              label: "시청자 댓글 반응(단위: %)",
+              data: remake_sentiment_data.map((data) => data.value),
               backgroundColor: "rgba(255, 99, 132, 0.2)",
               borderColor: "rgba(255, 99, 132, 1)",
               borderWidth: 2,
             },
             {
-              label: "게임 유튜버 평균(단위 %)",
-              data: [34, 5, 3, 19, 7, 9, 22],
+              label: "게임 유튜버 평균(단위: %)",
+              data: [34, 26, 12, 5, 22],
               backgroundColor: "rgba(0, 163, 210, 0.05)",
               borderColor: "rgba(0, 163, 210, 1)",
               borderWidth: 0.5,
             },
           ],
         };
+        // console.log(remake_sentiment_data);
+        // let clean_sentiment_data = {
+        //   labels: response.data.comment_tags.map((data) => {
+        //     if (data.tag === "happy") {
+        //       return "행복";
+        //     } else if (data.tag === "sad") {
+        //       return "슬픔";
+        //     } else if (data.tag === "angry") {
+        //       return "화남";
+        //     } else if (data.tag === "surprise") {
+        //       return "놀람";
+        //     } else if (data.tag === "fear") {
+        //       return "공포";
+        //     } else if (data.tag === "hate") {
+        //       return "혐오";
+        //     } else if (data.tag === "neutrality") {
+        //       return "중립";
+        //     } else {
+        //       return "기타";
+        //     }
+        //   }),
+        //   datasets: [
+        //     {
+        //       label: "시청자 댓글 반응(단위 %)",
+        //       data: response.data.comment_tags.map((data) =>
+        //         (data.value * 100).toFixed(2)
+        //       ),
+        //       backgroundColor: "rgba(255, 99, 132, 0.2)",
+        //       borderColor: "rgba(255, 99, 132, 1)",
+        //       borderWidth: 2,
+        //     },
+        //     {
+        //       label: "게임 유튜버 평균(단위 %)",
+        //       data: [34, 5, 3, 19, 7, 9, 22],
+        //       backgroundColor: "rgba(0, 163, 210, 0.05)",
+        //       borderColor: "rgba(0, 163, 210, 1)",
+        //       borderWidth: 0.5,
+        //     },
+        //   ],
+        // };
         // console.log(clean_sentiment_data);
         setSentimentData(clean_sentiment_data);
         setWordcloudData(clean_cloud_data);
@@ -108,8 +178,13 @@ const InfoWordCloud = ({ data }) => {
   };
 
   const sentiment_options = {
+    legend: { labels: { fontSize: 15 } },
     scale: {
-      ticks: { beginAtZero: true },
+      pointLabels: {
+        fontSize: 20,
+        fontColor: "red",
+      },
+      ticks: { beginAtZero: true, fontSize: 20, fontColor: "gray" },
     },
   };
 

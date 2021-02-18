@@ -28,7 +28,7 @@ const SideBar = () => {
       <div className="side-bar-menu">
         <Link to="/feedback">
           <i className="far fa-comments fa-lg"></i>
-          <p>피드백</p>
+          <p>이모저모</p>
         </Link>
       </div>
     </div>

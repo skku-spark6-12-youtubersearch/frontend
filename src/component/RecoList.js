@@ -21,8 +21,8 @@ const RecoList = ({ category, filter }) => {
       try {
         console.log("get start");
         const response = await axios.get(
-          `http://${secret.BACKEND_IP}:9000/summary`,
-          { timeout: 15000 }
+          `http://${secret.BACKEND_IP}:9000/summary`
+          // { timeout: 15000 }
         );
         // console.log(response.data);
         setItems(response.data);

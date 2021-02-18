@@ -79,7 +79,7 @@ const RecoElement = ({ data, filter }) => {
           autoplay: true,
           autoplaySpeed: 6000,
         },
-        setCard(live_card)
+        setCard(live_card.filter((x) => x !== null).slice(undefined, 30))
       );
     } else {
       setSlickSettings(
@@ -116,7 +116,7 @@ const RecoElement = ({ data, filter }) => {
         </div>
         {no_score_list.indexOf(data.list_name) === -1 ? (
           <div className="reco-score">
-            <p>SCORE : </p>
+            {/* <p>SCORE : </p> */}
             <p className="score-desc">{data.list_score_desc}</p>{" "}
           </div>
         ) : (
