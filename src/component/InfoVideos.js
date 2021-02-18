@@ -1,9 +1,25 @@
 import React, { useState, useEffect } from "react";
 import "./css/InfoVideos.css";
+import ReactGA from "react-ga";
 
 const InfoVideos = ({ data }) => {
   const [popularVideo, setPopularVideo] = useState(null);
   const [recentVideo, SetRecentVideo] = useState(null);
+
+  const GAClickBest = () => {
+    ReactGA.event({
+      category: "InfoPage",
+      action: "click for watching youtube",
+      label: "Best Video",
+    });
+  };
+  const GAClickRecent = () => {
+    ReactGA.event({
+      category: "InfoPage",
+      action: "click for watching youtube",
+      label: "Recent Video",
+    });
+  };
 
   useEffect(() => {
     setPopularVideo(
@@ -41,6 +57,7 @@ const InfoVideos = ({ data }) => {
                     href={`https://www.youtube.com/watch?v=${video.id}`}
                     rel="noreferrer"
                     target={"_blank"}
+                    onClick={GAClickBest}
                   >
                     <img
                       alt={"유튜브 비디오"}
@@ -66,6 +83,7 @@ const InfoVideos = ({ data }) => {
                     href={`https://www.youtube.com/watch?v=${video.id}`}
                     rel="noreferrer"
                     target={"_blank"}
+                    onClick={GAClickRecent}
                   >
                     <img
                       alt={"유튜브 비디오"}

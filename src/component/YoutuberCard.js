@@ -1,17 +1,26 @@
 import React, { useState } from "react";
 import "./css/YoutuberCard.css";
 import { Link } from "react-router-dom";
+import ReactGA from "react-ga";
 
 const YoutuberCard = ({ info, listName }) => {
   const [isOnMouse, setIsOnMouse] = useState(false);
 
   const onMouseEnter = (e) => {
     setIsOnMouse(true);
-    console.log("on");
+    // console.log("on");
   };
   const onMouseLeave = (e) => {
     setIsOnMouse(false);
-    console.log("out");
+    // console.log("out");
+  };
+
+  const GAClick = () => {
+    ReactGA.event({
+      category: "RecoList",
+      action: "click youtuber card",
+      label: listName,
+    });
   };
 
   let display_score = "";
@@ -74,6 +83,7 @@ const YoutuberCard = ({ info, listName }) => {
       to={`/youtuber/${info.channel_id}`}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
+      onClick={GAClick}
     >
       {isOnMouse ? (
         <div className="card-box">

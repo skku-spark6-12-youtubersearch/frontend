@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./css/FilterTab.css";
 import RecoList from "./RecoList";
+import ReactGA from "react-ga";
 
 const filter = [
   "남성",
@@ -31,6 +32,12 @@ const FilterTab = ({ category }) => {
       current_tag = new Set(current_tag);
       let new_tag = [...current_tag];
       setFilterTag(new_tag);
+      //GA event
+      ReactGA.event({
+        category: "Filter",
+        action: "set filter",
+        label: e.target.value,
+      });
     }
   };
 

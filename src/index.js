@@ -4,6 +4,14 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./component/reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
+import ReactGA from "react-ga";
+const secret = require("./component/secret");
+
+ReactGA.initialize(secret.TRACKING_ID, {
+  debug: false,
+  gaOptions: { siteSpeedSampleRate: 100 },
+});
+// ReactGA.pageview("/");
 
 ReactDOM.render(
   <BrowserRouter>

@@ -91,6 +91,39 @@ const AdminDBinsert = () => {
     }
   };
 
+  const updateTagClick = async () => {
+    if (isFileLoaded === false) {
+      alert("no items");
+      return;
+    } else {
+      const idlist = fileItem.tag.map((item) => {
+        return item.id.substring(9);
+      });
+
+      console.log("post start");
+
+      for (let id of idlist) {
+        console.log(`${id} post start`);
+        try {
+          const response = await axios({
+            method: "post",
+            url: `http://${secret.BACKEND_IP}:9000/admin/tags/${id}`,
+            data: fileItem.tag.filter(
+              (channel) => channel.id.substring(9) === id
+            )[0],
+            headers: {
+              "x-access-token": secret.ADMIN_TOKEN,
+            },
+          });
+
+          console.log(response);
+        } catch (e) {
+          console.log(e);
+        }
+      }
+    }
+  };
+
   if (window.prompt("비밀번호를 입력하세요") === secret.ADMIN_PASSWORD) {
     return (
       <div style={{ paddingLeft: "80px" }}>
@@ -109,6 +142,7 @@ const AdminDBinsert = () => {
         <button disabled={1}>Set Channel DB </button>
         <button onClick={updateClick}>Update Channel </button>
         <button onClick={setTagClick}>Set Tag DB</button>
+        <button onClick={updateTagClick}>/update Tag DB</button>
 
         {isFileLoaded && <div>{JSON.stringify(fileItem).substr(0, 2000)}</div>}
       </div>

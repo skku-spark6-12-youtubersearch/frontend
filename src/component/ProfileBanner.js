@@ -1,7 +1,16 @@
 import React from "react";
 import "./css/ProfileBanner.css";
+import ReactGA from "react-ga";
 
 const ProfileBanner = ({ data }) => {
+  const GAClick = () => {
+    ReactGA.event({
+      category: "InfoPage",
+      action: "click for watching youtube",
+      label: "banner button",
+    });
+  };
+
   return (
     <div className="profile-box">
       <div className="avatar-summary-box">
@@ -22,7 +31,7 @@ const ProfileBanner = ({ data }) => {
             target={"_blank"}
             rel="noreferrer"
           >
-            <button>
+            <button onClick={GAClick}>
               <i className="fab fa-youtube fa-5x"></i>
               <p>보러가기</p>
             </button>
