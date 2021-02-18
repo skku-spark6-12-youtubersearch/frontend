@@ -29,7 +29,7 @@ const InfoWordCloud = ({ data }) => {
           .sort((a, b) => {
             return b.value - a.value;
           })
-          .slice(undefined, 20);
+          .slice(undefined, 30);
         clean_cloud_data = clean_cloud_data.concat(clean_video_tag_data);
         //감성분석 데이터
         const origin_sentiment_data = response.data.comment_tags;
@@ -216,11 +216,15 @@ const InfoWordCloud = ({ data }) => {
           </div>
           <div className="sentiment_radar">
             <p className="detail-what">시청자 댓글 분석</p>
-            <Radar
-              options={sentiment_options}
-              data={sentimentData}
-              height={80}
-            />
+            {sentimentData.datasets[0].data[4] >= 100 ? (
+              <h1>댓글이 충분하지 않습니다..</h1>
+            ) : (
+              <Radar
+                options={sentiment_options}
+                data={sentimentData}
+                height={80}
+              />
+            )}
           </div>
         </div>
       </div>
