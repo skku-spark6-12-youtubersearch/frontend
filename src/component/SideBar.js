@@ -3,6 +3,10 @@ import "./css/SideBar.css";
 import { Link } from "react-router-dom";
 
 const SideBar = () => {
+  const onClickBackgound = (e) => {
+    const menu = document.getElementsByClassName("side-bar-box")[0];
+    menu.style.display = "none";
+  };
   return (
     <div className="side-bar-box">
       <div className="side-bar-menu">
@@ -31,6 +35,7 @@ const SideBar = () => {
           <p>이모저모</p>
         </Link>
       </div>
+      <div className="mobile-background" onClick={onClickBackgound}></div>
     </div>
   );
 };

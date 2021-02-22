@@ -65,3 +65,29 @@
 .slick-next:before {
   color: black;
 }
+
+@media (max-width: 800px) {
+  .reco-box {
+    margin: auto;
+    width: 100%;
+    overflow: hidden;
+  }
+  .reco-top {
+    width: 90%;
+  }
+  .reco-score {
+    width: 90%;
+  }
+  .card-container {
+    padding-left: 0;
+  }
+  .reco-top > h2 {
+    display: inline-block;
+    /* background-color: #384259; */
+    /* color: #7ac7c4; */
+    margin-top: 10px;
+    margin-bottom: 0;
+    font-size: medium;
+    margin-left: 10px;
+  }
+}

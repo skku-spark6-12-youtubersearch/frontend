@@ -23,3 +23,23 @@
   text-decoration-color: #f73859;
   color: #f73859;
 }
+
+.mobile-menu {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .mobile-menu {
+    display: inline;
+    margin-right: 10px;
+  }
+  .top-banner {
+    padding: 10px 0;
+    height: 30px;
+    flex-direction: column;
+  }
+  .site-logo {
+    font-size: 25px;
+    margin-left: 10px;
+  }
+}

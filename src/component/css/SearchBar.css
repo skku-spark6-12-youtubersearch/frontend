@@ -37,3 +37,17 @@
 .search-box button:focus {
   outline: none;
 }
+
+@media (max-width: 800px) {
+  .search-box {
+    width: 90vw;
+    height: 20px;
+    margin-left: 10px;
+  }
+  .search-input {
+    font-size: small;
+  }
+  .search-box button {
+    height: 21px;
+  }
+}

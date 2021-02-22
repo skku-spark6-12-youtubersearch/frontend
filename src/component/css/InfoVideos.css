@@ -60,3 +60,31 @@
   margin-left: 10px;
   font-size: small;
 }
+
+@media (max-width: 800px) {
+  .info-video-box {
+    width: 90%;
+    margin-top: 0px;
+    padding-left: 10px;
+  }
+  .info-video-box h3 {
+    margin-top: 0;
+  }
+  .popular-video-box {
+    margin-bottom: 20px;
+  }
+  .video_item {
+    width: 90vw;
+  }
+  .video_item:nth-child(2) {
+    display: none;
+  }
+  .video_item:nth-child(3) {
+    display: none;
+  }
+  .video_item img {
+    width: 50vw;
+    height: 30vw;
+    border-radius: 10px;
+  }
+}

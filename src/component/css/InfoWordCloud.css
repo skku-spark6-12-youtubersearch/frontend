@@ -40,3 +40,15 @@
   border: 1px solid #f73859;
   margin-top: 10px;
 }
+
+@media (max-width: 800px) {
+  .head-text-box h2 {
+    padding: 0;
+    width: 80%;
+    margin-left: 10px;
+    margin-top: 0;
+  }
+  .info-detail-box {
+    margin-left: 0;
+  }
+}

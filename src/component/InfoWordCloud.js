@@ -222,7 +222,7 @@ const InfoWordCloud = ({ data }) => {
               <Radar
                 options={sentiment_options}
                 data={sentimentData}
-                height={80}
+                // height={80}
               />
             )}
           </div>

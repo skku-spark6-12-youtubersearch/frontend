@@ -41,10 +41,7 @@ const YoutuberInfo = ({ match }) => {
       backgroundSize: "100% auto",
       backgroundRepeat: "no-repeat",
       // width: `50vw - 70px`,
-      height: "200px",
-      marginTop: "10px",
-      marginLeft: "70px",
-      paddingLeft: "0",
+
       // backgroundColor: "red",
     };
 

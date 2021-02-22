@@ -26,3 +26,17 @@
   border-radius: 5px;
   border: none;
 }
+
+@media (max-width: 800px) {
+  .filter-tab-box {
+    width: 95vw;
+    margin: 0 10px;
+    float: none;
+    padding-bottom: 10px;
+    border-bottom: 1px solid black;
+  }
+  .filter-tab-box h2 {
+    font-size: 15px;
+    display: inline;
+  }
+}

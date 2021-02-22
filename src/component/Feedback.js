@@ -5,6 +5,13 @@ const Feedback = () => {
   return (
     <div className="feedback-box">
       <h1>유레코 베타 서비스 오픈!</h1>
+      <iframe
+        src="https://www.youtube.com/embed/Eo5vv4vVL0Y"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      ></iframe>
+      <h2>PC환경에 최적화 되어있습니다.</h2>
       <h2>현재는 게임 유튜버만 만나보실 수 있습니다</h2>
       <div>
         서비스 개선사항, 기능 제안, 아쉬운 점 등 자유로운 피드백 보내주세요!

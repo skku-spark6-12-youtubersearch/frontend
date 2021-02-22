@@ -58,3 +58,22 @@
   text-align: center;
   color: white;
 }
+
+@media (max-width: 800px) {
+  .card-box {
+    margin: 0 3px;
+  }
+  .image-box img {
+    width: 45px;
+  }
+  .text-box h3 {
+    vertical-align: middle;
+    width: 100%;
+    word-break: break-all;
+    color: white;
+    font-size: 0.9rem;
+  }
+  .text-box p {
+    font-size: 0.8rem;
+  }
+}

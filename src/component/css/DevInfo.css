@@ -48,3 +48,31 @@
 .dev-memo span {
   font-size: 50px;
 }
+
+@media (max-width: 800px) {
+  .dev-info-box {
+    background-color: aliceblue;
+    border: 1px solid;
+    width: 80vw;
+    margin: auto;
+    margin-bottom: 20px;
+    padding: 10px 10px;
+    display: flex;
+    flex-direction: column;
+  }
+  .dev-img-box {
+    width: 70vw;
+    height: 70vw;
+    overflow: hidden;
+    border-radius: 50%;
+    margin: auto;
+  }
+  .dev-img-box img {
+    width: 70vw;
+    height: auto;
+  }
+  .dev-text-box {
+    margin: auto;
+    width: 100%;
+  }
+}
